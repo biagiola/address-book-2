@@ -1,0 +1,236 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* erease black border after clicking tags on chrome */
+*:focus {
+  outline: 0;
+}
+
+body {
+  background: #fff;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  padding: 0.45rem;
+  margin: 0.55rem;
+  cursor: default
+}
+
+/* TAB STYLES */
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(107, 107, 107, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(185, 185, 185, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child){
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs  {
+  color: #f1f1f1;
+  background: #ff701e;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.active-tabs:active {
+  background: rgb(255, 123, 0);
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+button {
+  border: none;
+}
+.content-tabs {
+  flex-grow: 1;
+  display: block;
+  max-width: 430px;
+  margin: 5px auto;
+}
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
+
+/* FORM ADD  */
+#contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-inputs > input, .search-input {
+  /* color: rgb(122, 122, 122); */
+  border: 1px solid rgb(141, 141, 141);
+  border-radius: 0.2rem;
+  padding: 0.85rem 0.45rem;
+  margin: 0.72rem 0.72rem;
+  transition: all 0.2s ease;
+}
+.contact-inputs > input:hover {
+  border-color: #ff701e;
+}
+
+.contact-button, .search-btn {
+  color: #f1f1f1;
+  border-radius: 0.2rem;
+  padding: 0.95rem 0.65rem;
+  margin: 0.52rem 0.72rem;
+  background-color: #ff5c00;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.contact-button:hover, .search-btn:hover {
+  background-color: #ff6f1b;
+}
+/*SHOW ALL - INDIVIDUAL CARD CONTENT*/
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0.75rem;
+  margin: 0.95rem 0.45rem;
+  background-color: #ff5c00;
+  transition: all 0.2s ease;
+  border-radius: 0.2rem;
+  color: #f1f1f1;
+}
+.card:hover {
+  transform: scale(1.01);
+  /* background-color: #ff701e; */
+}
+
+
+.card-content > div {
+  padding: 0.15rem;
+  margin: 0.15rem;
+  cursor: default;
+}
+
+.card-options {
+  display: flex;
+}
+
+.card-delete, .card-edit {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.card-delete:hover, .card-edit:hover { 
+ color: #551947;
+}
+
+.card-content-edit > form > input {
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  background-color: #ff701e;
+  border: 1px solid #ff701e/* rgb(141, 141, 141) */;
+  border-radius: 0.2rem;
+  padding: 0.45rem 0.45rem;
+  margin: 0.32rem;
+  transition: all 0.2s ease;
+}
+.card-content-edit > form > input:hover {
+  border-color: #ff701e;
+  background-color: #fd843e;
+}
+
+.card-options-btns {
+  display: flex;
+}
+
+.card-option-btn-update,
+.card-option-btn-cancel  {
+  color: #f1f1f1;
+  font-size: 0.9rem ;
+  background-color: #460a38;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 0.55rem;
+  margin: 0.65rem 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0.2rem;
+}
+
+.card-option-btn-update:hover,
+.card-option-btn-cancel:hover {
+  background-color: #551947;
+}
+
+.search-container > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box {
+  margin: 2px auto;
+}
+
+.search-input:hover {
+  border-color: #ff701e;
+}
+
+.notFound {
+  margin-left: 0.95rem;
+  font-size: 0.92rem;
+  color: red;
+}
+ 
