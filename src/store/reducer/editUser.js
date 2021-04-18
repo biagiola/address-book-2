@@ -9,9 +9,6 @@ function editUser(state, action) {
       editedUser[i].email = action.email
 
       return editedUser
-
-    } else {
-      return false
     }
   }
 

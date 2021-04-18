@@ -35,9 +35,6 @@ const Search = ({ toggleState }) => {
 
   const handleSearch = e => {
     e.preventDefault()
-    console.log('handleSearch', searchUser)
-    console.log('searchPressed', searchPressed)
-    console.log('notFoundMessage', notFoundMessage)
     
     setSearchPressed(true)
 
@@ -49,22 +46,30 @@ const Search = ({ toggleState }) => {
 
   /* handle not found contact error */
   useEffect(() => {
+    console.log('********')
+    console.log('useEffect')
+    console.log('foundUser',foundUser )
     console.log('foundUser.name',foundUser.name )
 
-    if(foundUser.name && searchPressed) {
-      console.log('foundUser first**', foundUser.name)
+    /* hide error */
+    if(foundUser.id && searchPressed) {
+      console.log('CASO 1**')
       setNotFoundMessage(false)
     } 
     
-    if(foundUser.name == undefined && searchPressed ) {
-      console.log('foundUser second**', foundUser.name)
-      setNotFoundMessage(!notFoundMessage)
+    /* show error after an editing */
+    if(!foundUser && searchPressed ) {
+      console.log('CASO 2**')
+      setNotFoundMessage(true)
     }
 
-    if(!foundUser.name && searchPressed ) {
-      console.log('foundUser threeth**', foundUser.name)
-      setNotFoundMessage(!notFoundMessage)
+    /* show error after an editing */
+    if(foundUser.name === undefined &&  searchPressed ) {
+      console.log('CASO 3**')
+      setNotFoundMessage(true)
     }
+
+    console.log('********')
 
   }, [foundUser])
 
@@ -120,7 +125,7 @@ const Search = ({ toggleState }) => {
 
       {/* not user found */}
       {
-        notFoundMessage && searchPressed && !userUpdatedSuccessfully
+        notFoundMessage && searchPressed /* && !foundUser.id */
         ? <div className='notFound'>User not found :'(</div> 
         : <div></div>
       }

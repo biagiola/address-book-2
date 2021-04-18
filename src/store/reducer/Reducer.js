@@ -16,15 +16,15 @@ const reducer = (state, action) => {
       }
 
     case actionTypes.EDIT:
+      let editedUsers = editUser(state, action)
       return {
         ...state,
-        users: editUser(state, action),
-        foundUser: { 
+        users: editedUsers,
+        foundUser: {
           name: action.name,
           phone: action.phone,
           email: action.email
-        },
-        userUpdatedSuccessfully: true
+        }
       }
 
     case actionTypes.DELETE:
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
         ...state,
         users: deleteUser(state, action),
         foundUser: {
-          id: '',
+          id: null,
           name: '',
           phone: '',
           email: ''
